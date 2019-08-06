@@ -35,7 +35,8 @@ def scan():
       collection[os.path.abspath(f)]=artist.lower()
     else:
       print('No artist: '+f)
-  print(str(collection),file=open('collection.db','w'))
+  #print(str(collection),file=open('collection.db','w'))
+  print(f'{len(collection)} songs cached.')
 
 def generateplaylist():
   print('Generating playlist...')
@@ -50,12 +51,12 @@ def generateplaylist():
       artists.add(artist)
       print(f,file=playlist)
 
-scanlater=True
+'''scanlater=True
 if os.path.isfile('collection.db'):
   collection=eval(open('collection.db').read())
-else:
-  scan()
-  scanlater=False
+else:'''
+scan()
+#scanlater=False
 generateplaylist()
-if scanlater :
-  scan()
+#if scanlater :
+#  scan()
